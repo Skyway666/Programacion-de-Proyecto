@@ -23,9 +23,11 @@ int main(int argc, char*argv[])
 		0
 	);
 	renderer = SDL_CreateRenderer(window, -1, 0);
-
-
-
+	surface = SDL_LoadBMP("C:/hello.bmp");
+	if (surface == NULL)
+	{
+		printf("%s", SDL_GetError());
+	}
 
 
 
