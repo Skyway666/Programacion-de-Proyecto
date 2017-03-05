@@ -7,47 +7,44 @@
 int main(int argc, char*argv[])
 {
 	SDL_Init(SDL_INIT_EVERYTHING);
-	SDL_Window *window;  
+	SDL_Window *window;
 	SDL_Renderer* renderer;
 	SDL_Event event;
+	SDL_Surface * surface;
 
-         
 
-										   
+
 	window = SDL_CreateWindow(
-		"Pitufo desangrado",                 
-		SDL_WINDOWPOS_CENTERED,       
-		SDL_WINDOWPOS_CENTERED,       
-		640,                              
-		480,                               
-		0                
+		"Pitufo desangrado",
+		SDL_WINDOWPOS_CENTERED,
+		SDL_WINDOWPOS_CENTERED,
+		640,
+		480,
+		0
 	);
 	renderer = SDL_CreateRenderer(window, -1, 0);
 
-   
-	
-    
 
 
-	
-	
+
+
+
+
+
 	SDL_Rect rectangle;
-    rectangle.x = 270;
+	rectangle.x = 270;
 	rectangle.y = 200;
 	rectangle.w = 80;
 	rectangle.h = 80;
 
-	SDL_Keysym escape;
-	escape.scancode = SDL_SCANCODE_ESCAPE;
-	escape.sym = SDL_SCANCODE_ESCAPE;
-	escape.mod = KMOD_NONE;
-	
-    
-	
 
 
-	
-   
+
+
+
+
+
+
 	int counter = 0;
 	while (counter != 1)
 	{
@@ -62,9 +59,25 @@ int main(int argc, char*argv[])
 
 		if (SDL_PollEvent(&event))
 		{
-			if (event.key.keysym.scancode == escape.scancode)
+			if (event.key.keysym.scancode == SDL_SCANCODE_ESCAPE)
 			{
 				counter = 1;
+			}
+			if (event.key.keysym.scancode == SDL_SCANCODE_UP)
+			{
+				rectangle.y -= 6;
+            }
+			if (event.key.keysym.scancode == SDL_SCANCODE_DOWN)
+			{
+				rectangle.y += 6;
+			}
+			if (event.key.keysym.scancode == SDL_SCANCODE_RIGHT)
+			{
+				rectangle.x += 6;
+			}
+			if (event.key.keysym.scancode == SDL_SCANCODE_LEFT)
+			{
+				rectangle.x -= 6;
 			}
 
 
