@@ -11,6 +11,7 @@ int main(int argc, char*argv[])
 	SDL_Renderer* renderer;
 	SDL_Event event;
 	SDL_Surface * surface;
+	SDL_Texture * textura;
 
 
 
@@ -28,7 +29,7 @@ int main(int argc, char*argv[])
 	{
 		printf("%s", SDL_GetError());
 	}
-
+	textura = SDL_CreateTextureFromSurface(renderer, surface);
 
 
 
@@ -42,7 +43,7 @@ int main(int argc, char*argv[])
 
 
 
-
+	
 
 
 
@@ -50,12 +51,13 @@ int main(int argc, char*argv[])
 	int counter = 0;
 	while (counter != 1)
 	{
+		
 		SDL_SetRenderDrawColor(renderer, 255, 0, 0, 0);
 		SDL_RenderClear(renderer);
-		SDL_SetRenderDrawColor(renderer, 0, 0, 255, 0);
-		SDL_RenderFillRect(renderer, &rectangle);
+		SDL_RenderCopy(renderer, textura, NULL, &surface->clip_rect);
+		
 		SDL_RenderPresent(renderer);
-
+	
 
 
 
@@ -67,19 +69,19 @@ int main(int argc, char*argv[])
 			}
 			if (event.key.keysym.scancode == SDL_SCANCODE_UP)
 			{
-				rectangle.y -= 6;
+				surface->clip_rect.y -= 6;
             }
 			if (event.key.keysym.scancode == SDL_SCANCODE_DOWN)
 			{
-				rectangle.y += 6;
+				surface->clip_rect.y += 6;
 			}
 			if (event.key.keysym.scancode == SDL_SCANCODE_RIGHT)
 			{
-				rectangle.x += 6;
+				surface->clip_rect.x += 6;
 			}
 			if (event.key.keysym.scancode == SDL_SCANCODE_LEFT)
 			{
-				rectangle.x -= 6;
+				surface->clip_rect.x -= 6;
 			}
 
 
@@ -87,7 +89,7 @@ int main(int argc, char*argv[])
 
 
 	}
-
+	SDL_FreeSurface(surface);
 	SDL_Quit();
 
 	return (EXIT_SUCCESS);
