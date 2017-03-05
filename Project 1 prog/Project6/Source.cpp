@@ -11,7 +11,9 @@ int main(int argc, char*argv[])
 	SDL_Renderer* renderer;
 	SDL_Event event;
 	SDL_Surface * surface;
+	SDL_Surface * STRONCO;
 	SDL_Texture * textura;
+	int swich = 0;
 
 
 
@@ -25,11 +27,12 @@ int main(int argc, char*argv[])
 	);
 	renderer = SDL_CreateRenderer(window, -1, 0);
 	surface = SDL_LoadBMP("C:/hello.bmp");
+	STRONCO = SDL_LoadBMP("C:/goodbye.bmp");
 	if (surface == NULL)
 	{
 		printf("%s", SDL_GetError());
 	}
-	textura = SDL_CreateTextureFromSurface(renderer, surface);
+	
 
 
 
@@ -54,8 +57,16 @@ int main(int argc, char*argv[])
 		
 		SDL_SetRenderDrawColor(renderer, 255, 0, 0, 0);
 		SDL_RenderClear(renderer);
+		if (swich %2 == 0)
+		{
+		textura = SDL_CreateTextureFromSurface(renderer, surface);
 		SDL_RenderCopy(renderer, textura, NULL, &surface->clip_rect);
-		
+		}
+		else
+		{
+			textura = SDL_CreateTextureFromSurface(renderer, STRONCO);
+			SDL_RenderCopy(renderer, textura, NULL, &surface->clip_rect);
+		}
 		SDL_RenderPresent(renderer);
 	
 
@@ -82,6 +93,14 @@ int main(int argc, char*argv[])
 			if (event.key.keysym.scancode == SDL_SCANCODE_LEFT)
 			{
 				surface->clip_rect.x -= 6;
+			}
+			if (event.key.keysym.scancode == SDL_SCANCODE_T )
+			{
+				swich = 1;
+			}
+			if (event.key.keysym.scancode == SDL_SCANCODE_N)
+			{
+				swich = 2;
 			}
 
 
