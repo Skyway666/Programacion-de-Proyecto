@@ -37,24 +37,6 @@ int main(int argc, char*argv[])
 		printf("%s", SDL_GetError());
 	}
 	
-
-
-
-
-	SDL_Rect rectangle;
-	rectangle.x = 270;
-	rectangle.y = 200;
-	rectangle.w = 80;
-	rectangle.h = 80;
-
-
-
-
-	
-
-
-
-
 	int counter = 0;
 	while (counter != 1)
 	{
