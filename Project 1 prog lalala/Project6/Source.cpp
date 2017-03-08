@@ -31,11 +31,14 @@ int main(int argc, char*argv[])
 	int shot = 0;
 	int counter = 0;
 	int counter2 = 0;
-	bool up = 0;
-	bool down = 0;
-	bool right = 0;
-	bool left = 0;
-
+	bool up = false;
+	bool down = false;
+	bool right = false;
+	bool left = false;
+	bool escape = false;
+	bool bar = false;
+	bool T = false;
+	bool N = false;
 	window = SDL_CreateWindow(
 		"Pitufo desangrado",
 		SDL_WINDOWPOS_CENTERED,
@@ -44,7 +47,7 @@ int main(int argc, char*argv[])
 		480,
 		0
 	);
-	renderer = SDL_CreateRenderer(window, -1, 0);
+	renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_PRESENTVSYNC);
 	surface = IMG_Load("ryu.png");
 	if (surface == NULL )
 	{
@@ -120,15 +123,15 @@ int main(int argc, char*argv[])
 		
 		if (once % 10 == 0)
 		{ 
-		guile->clip_rect.x--;
-		ryu->clip_rect.x--;
+		guile->clip_rect.x-= 6;
+		ryu->clip_rect.x-= 6;
 		}
-		if (ryu->clip_rect.x == -1)
+		if (ryu->clip_rect.x < -1)
 		{
 			guile->clip_rect.x = ryu->clip_rect.x + 1000;
 
 		}
-		if (guile->clip_rect.x == -1)
+		if (guile->clip_rect.x < -1)
 		{
 			ryu->clip_rect.x =guile->clip_rect.x + 1000;
 			 
@@ -142,13 +145,13 @@ int main(int argc, char*argv[])
 		       SDL_RenderCopy(renderer, textura2, NULL, &hadowken[counter]->clip_rect);
 			   counter++;
 			}
-		   if (once % 3 == 0)
+		   if (once % 1 == 0)
 		   {
 			   counter = 0;
 			   while (counter != 50)
 			   { 
 				   
-		       hadowken[counter]->clip_rect.x++;
+		       hadowken[counter]->clip_rect.x+= 6;
 			   counter++;
 			   }
 		   }
@@ -163,32 +166,64 @@ int main(int argc, char*argv[])
 		
 		SDL_RenderPresent(renderer);
 		once++;
-
-		
-		if (SDL_PollEvent(&event))
+		counter = 0;
+		while (SDL_PollEvent(&event))
 		{
+			switch(event.type)
+			{
+			case SDL_KEYUP:
+			{
+				   switch (event.key.keysym.scancode)
+				  { 
+				case SDL_SCANCODE_UP: up = false; break;
+				case SDL_SCANCODE_DOWN: down = false; break;
+				case SDL_SCANCODE_RIGHT: right = false; break;
+				case SDL_SCANCODE_LEFT: left = false; break;
+				case SDL_SCANCODE_SPACE: bar = false; break;
+
+				  }
+				break;
+			}
+			case SDL_KEYDOWN:
+			{
+			       switch (event.key.keysym.scancode)
+			     { 
+			       case SDL_SCANCODE_UP: up = true; break;
+			       case SDL_SCANCODE_DOWN: down = true; break;
+			       case SDL_SCANCODE_RIGHT: right = true; break;
+			       case SDL_SCANCODE_LEFT: left = true; break;
+				   case SDL_SCANCODE_ESCAPE: escape = true; break;
+				   case SDL_SCANCODE_SPACE: bar = true; break;
+                   case SDL_SCANCODE_T: T = true; break;
+				   case SDL_SCANCODE_N: N = true; break;
+			     }
+				   break;
+			}
+			}
+        }
+		
 			 
-			if (event.key.keysym.scancode == SDL_SCANCODE_ESCAPE)
+			if (escape == true)
 			{
 				counter = 1;
 			}
-			if (event.key.keysym.scancode == SDL_SCANCODE_UP )
+			if (up == true)
 			{
 				surface->clip_rect.y -= 6;
             }
-			if (event.key.keysym.scancode == SDL_SCANCODE_DOWN )
+			if (down == true )
 			{
 				surface->clip_rect.y += 6;
 			}
-			if (event.key.keysym.scancode == SDL_SCANCODE_RIGHT )
+			if (right == true )
 			{
 				surface->clip_rect.x += 6;
 			}
-			if (event.key.keysym.scancode == SDL_SCANCODE_LEFT )
+			if (left == true)
 			{
 				surface->clip_rect.x -= 6;
 			}
-			if (event.key.keysym.scancode == SDL_SCANCODE_SPACE && event.type == SDL_KEYDOWN)
+			if (bar == true)
 			{
 			
 				if (counter2 == 50)
@@ -203,16 +238,16 @@ int main(int argc, char*argv[])
 			
 				
 			}
-			if (event.key.keysym.scancode == SDL_SCANCODE_T && event.type == SDL_KEYDOWN)
+			if (T == true)
 			{
 				swich = 1;
 			}
-			if (event.key.keysym.scancode == SDL_SCANCODE_N && event.type == SDL_KEYDOWN)
+			if (N == true)
 			{
 				swich = 2;
 			}
 
-           }
+           
 		
 
 
