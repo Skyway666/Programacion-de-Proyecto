@@ -1,11 +1,15 @@
 #include <stdio.h>
 #include<stdlib.h>
 #include "SDL/include/SDL.h"
+#include "SDL/include/SDL_image.h"
 
 #pragma comment (lib, "SDL/lib/x86/SDL2.lib")
 #pragma comment (lib, "SDL/lib/x86/SDL2main.lib")
+#pragma comment (lib, "SDL/lib/x86/SDL2_image.lib")
+
 int main(int argc, char*argv[])
 {
+	IMG_INIT_JPG;
 	SDL_Init(SDL_INIT_EVERYTHING);
 	SDL_Window *window;
 	SDL_Renderer* renderer;
@@ -41,7 +45,7 @@ int main(int argc, char*argv[])
 		0
 	);
 	renderer = SDL_CreateRenderer(window, -1, 0);
-	surface = SDL_LoadBMP("hello.bmp");
+	surface = IMG_Load("ryu.png");
 	if (surface == NULL )
 	{
 		printf("%s\n", SDL_GetError());
@@ -54,7 +58,7 @@ int main(int argc, char*argv[])
 	}
 	while (counter != 50)
 	{
-    hadowken[counter] = SDL_LoadBMP("hadowken.bmp");
+    hadowken[counter] = IMG_Load("hadowken.png");
 	hadowken[counter]->clip_rect.y = 98749;
 	   if (hadowken == NULL)
 	    {
@@ -80,7 +84,23 @@ int main(int argc, char*argv[])
 	guile->clip_rect.h = 480;
 	guile->clip_rect.x = ryu->clip_rect.x + 1000;
 	surface->clip_rect.y = 300;
-	
+	surface->clip_rect.w = 150;
+	surface->clip_rect.h = 150;
+	counter = 0;
+	while (counter != 50)
+	{
+		hadowken[counter]->clip_rect.w = 62;
+		hadowken[counter]->clip_rect.h = 62;
+		++counter;
+	}
+	counter = 0;
+
+	SDL_Rect cabesa;
+	cabesa.x = 518;
+	cabesa.y = 22;
+	cabesa.h = 169;
+	cabesa.w = 168;
+
 
 	
 
@@ -122,7 +142,7 @@ int main(int argc, char*argv[])
 		       SDL_RenderCopy(renderer, textura2, NULL, &hadowken[counter]->clip_rect);
 			   counter++;
 			}
-		   if (once % 5 == 0)
+		   if (once % 3 == 0)
 		   {
 			   counter = 0;
 			   while (counter != 50)
@@ -144,9 +164,10 @@ int main(int argc, char*argv[])
 		SDL_RenderPresent(renderer);
 		once++;
 
-
+		
 		if (SDL_PollEvent(&event))
 		{
+			 
 			if (event.key.keysym.scancode == SDL_SCANCODE_ESCAPE)
 			{
 				counter = 1;
@@ -174,8 +195,8 @@ int main(int argc, char*argv[])
 				{
 					counter2 = 0;
 				}
-				hadowken[counter2]->clip_rect.x = surface->clip_rect.x;
-				hadowken[counter2]->clip_rect.y = surface->clip_rect.y;
+				hadowken[counter2]->clip_rect.x = surface->clip_rect.x+120 ;
+				hadowken[counter2]->clip_rect.y = surface->clip_rect.y+ 15;
 				++counter2;
 				
 				
@@ -191,8 +212,8 @@ int main(int argc, char*argv[])
 				swich = 2;
 			}
 
-
-		}
+           }
+		
 
 
 	}
