@@ -3,7 +3,8 @@
 
 Application::Application()
 {
-	//modules[0] = win = new ModuleWindow();
+	win = new ModuleWindow();
+	modules[0] = new Module();
 }	
 
 bool Application::Init()
@@ -11,7 +12,7 @@ bool Application::Init()
 	bool ret = true;
 
 	for(int i = 0; i < NUM_MODULES && ret == true; ++i)
-		ret = modules[i]->Init();
+		ret = win->Init();
 
 	return ret;
 }
@@ -37,7 +38,7 @@ bool Application::CleanUp()
 	bool ret = true;
 
 	for(int i = NUM_MODULES - 1; i >= 0 && ret == true; --i)
-		ret = modules[i]->CleanUp();
+		ret = win->CleanUp();
 
 	return ret;
 }
