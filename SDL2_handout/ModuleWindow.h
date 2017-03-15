@@ -6,7 +6,7 @@
 #pragma comment( lib, "SDL/libx86/SDL2main.lib" )
 // TODO 1: Create the declaration of ModuleWindow class
 
-class ModuleWindow
+class ModuleWindow: public Module
 {
 public:
 

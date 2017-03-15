@@ -32,6 +32,7 @@ bool ModuleWindow::Init()
 			LOG("An error has ocurred when creating the window: %s", SDL_GetError());
 
 		}
+		return true;
 	}
 }
 
