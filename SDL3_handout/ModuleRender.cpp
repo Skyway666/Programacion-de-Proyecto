@@ -31,8 +31,12 @@ bool ModuleRender::Init()
 		LOG("Renderer could not be created! SDL_Error: %s\n", SDL_GetError());
 		ret = false;
 	}
+<<<<<<< HEAD
 	tex = App->textures->Load("Tilemaptest.png");
 	
+=======
+	tex = App->textures->Load("test.png");
+>>>>>>> origin/master
 	// TODO 9: load a texture "test.png" to test is everything works well
 
 	return ret;
@@ -81,9 +85,15 @@ bool ModuleRender::Blit(SDL_Texture* texture, int x, int y, SDL_Rect* section)
 {
 	bool ret = true;
 	SDL_Rect rect;
+<<<<<<< HEAD
 	rect.x = xmap;
 	rect.y = ymap;
 	
+=======
+	rect.x = x;
+	rect.y = y;
+
+>>>>>>> origin/master
 	if(section != nullptr)
 	{
 		rect.w = section->w;
@@ -93,10 +103,14 @@ bool ModuleRender::Blit(SDL_Texture* texture, int x, int y, SDL_Rect* section)
 	{
 		SDL_QueryTexture(texture, nullptr, nullptr, &rect.w, &rect.h);
 	}
+<<<<<<< HEAD
 	
 	rect.w *= 5;
 	rect.h *= 5;
 	
+=======
+
+>>>>>>> origin/master
 	if(SDL_RenderCopy(renderer, texture, section, &rect) != 0)
 	{
 		LOG("Cannot blit to screen. SDL_RenderCopy error: %s", SDL_GetError());
@@ -104,4 +118,8 @@ bool ModuleRender::Blit(SDL_Texture* texture, int x, int y, SDL_Rect* section)
 	}
 
 	return ret;
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> origin/master

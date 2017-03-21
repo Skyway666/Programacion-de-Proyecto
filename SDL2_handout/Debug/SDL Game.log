@@ -2,7 +2,15 @@
   Generating Code...
   Compiling...
   ModuleWindow.cpp
+<<<<<<< HEAD
 c:\users\lucasgm\desktop\sdl2_handout\modulewindow.cpp(30): warning C4002: too many actual parameters for macro 'LOG'
   Generating Code...
   SDL Game.vcxproj -> C:\Users\lucasgm\Desktop\SDL2_handout\Debug\SDL2 Handout.exe
   SDL Game.vcxproj -> C:\Users\lucasgm\Desktop\SDL2_handout\Debug\SDL2 Handout.pdb (Full PDB)
+=======
+c:\users\lucasgm\documents\github\programacion-de-proyecto\sdl2_handout\modulewindow.cpp(18): warning C4002: too many actual parameters for macro 'LOG'
+c:\users\lucasgm\documents\github\programacion-de-proyecto\sdl2_handout\modulewindow.cpp(32): warning C4002: too many actual parameters for macro 'LOG'
+  Generating Code...
+  SDL Game.vcxproj -> C:\Users\lucasgm\Documents\GitHub\Programacion-de-Proyecto\SDL2_handout\Debug\SDL2 Handout.exe
+  SDL Game.vcxproj -> C:\Users\lucasgm\Documents\GitHub\Programacion-de-Proyecto\SDL2_handout\Debug\SDL2 Handout.pdb (Full PDB)
+>>>>>>> origin/master
