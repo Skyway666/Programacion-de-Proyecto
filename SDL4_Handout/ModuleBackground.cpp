@@ -13,6 +13,14 @@ ModuleBackground::ModuleBackground()
 	ground.y = 391;
 	ground.w = 896;
 	ground.h = 72;
+<<<<<<< HEAD
+=======
+	// ship
+	ship.x = 10;
+	ship.y = 0;
+	ship.w = 520;
+	ship.h = 200;
+>>>>>>> origin/master
 
 	// Background / sky
 	background.x = 72;
@@ -25,6 +33,7 @@ ModuleBackground::ModuleBackground()
 	flag.PushBack({848, 256, 40, 40});
 	flag.PushBack({848, 304, 40, 40});
 	flag.speed = 0.08f;
+<<<<<<< HEAD
 
 	// ship
 	ship.x = 8;
@@ -38,6 +47,16 @@ ModuleBackground::ModuleBackground()
 	girl.PushBack({ 624, 144, 31, 55 });
 	girl.PushBack({ 624, 80, 31, 55 });
 	girl.speed = 0.05f;
+=======
+   // Cheear leader animation
+	cheer_leader.PushBack({ 622,16,33,53 });
+	cheer_leader.PushBack({ 622,80,33,53 });
+	cheer_leader.PushBack({ 622,144,33,53 });
+	cheer_leader.speed = 0.4f;
+	//Ship animation
+
+
+>>>>>>> origin/master
 }
 
 ModuleBackground::~ModuleBackground()
@@ -60,6 +79,7 @@ update_status ModuleBackground::Update()
 	App->render->Blit(graphics, 560, 8, &(flag.GetCurrentFrame()), 0.75f); // flag animation
 
 	// TODO 2: Draw the ship from the sprite sheet with some parallax effect
+<<<<<<< HEAD
 
 	App->render->Blit(graphics, 0, var, &ship, 0.75f);
 
@@ -82,5 +102,29 @@ update_status ModuleBackground::Update()
 			up = true;
 	}
 
+=======
+	// TODO 3: Animate the girl on the ship (see the sprite sheet)
+	if (sense == 0)
+	{
+		if (ship_movy > 2)
+		{
+			sense = 1;
+		}
+		ship_movy+= 1;
+	}
+	if (sense == 1)
+	{
+		if (ship_movy < -2)
+		{
+			sense = 0;
+		}
+		ship_movy-= 1;
+	}
+	App->render->Blit(graphics, 0,ship_movy +  -25, &ship);
+
+	App->render->Blit(graphics, 187,ship_movy + 104, &(cheer_leader.GetCurrentFrame()));
+	App->render->Blit(graphics, 0, 170, &ground);
+	
+>>>>>>> origin/master
 	return UPDATE_CONTINUE;
 }

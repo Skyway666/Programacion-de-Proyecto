@@ -23,6 +23,7 @@ public:
 	Animation idle;
 	Animation forward;
 	Animation backward;
+<<<<<<< HEAD
 	Animation jump;
 	Animation kick;
 	Animation punch;
@@ -40,6 +41,10 @@ public:
 
 	int time_kick = 0;
 
+=======
+	iPoint position;
+
+>>>>>>> origin/master
 };
 
 #endif

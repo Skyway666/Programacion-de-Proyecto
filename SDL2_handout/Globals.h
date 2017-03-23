@@ -20,6 +20,8 @@ enum update_status
 #define SCREEN_WIDTH 1024
 #define SCREEN_HEIGHT 768
 #define FULLSCREEN 0
+<<<<<<< HEAD
+=======
 #define FULL SDL_WINDOW_FULLSCREEN
 
 #define FULLDESK SDL_WINDOW_FULLSCREEN_DESKTOP
@@ -41,5 +43,6 @@ enum update_status
 #define HIDPI SDL_WINDOW_ALLOW_HIGHDPI
 
 
+>>>>>>> origin/master
 
 #endif // __GLOBALS_H__

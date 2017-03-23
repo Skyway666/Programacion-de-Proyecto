@@ -1,11 +1,21 @@
 #include <stdlib.h>
+<<<<<<< HEAD
+#include "SDL/include/SDL.h"
+#pragma comment( lib, "SDL/libx86/SDL2.lib" )
+#pragma comment( lib, "SDL/libx86/SDL2main.lib" )
+
+=======
+>>>>>>> origin/master
 #include "Application.h"
 #include "Globals.h"
 #include "MemLeaks.h"
 
+<<<<<<< HEAD
+=======
 #include "SDL/include/SDL.h"
 #pragma comment( lib, "SDL/libx86/SDL2.lib" )
 #pragma comment( lib, "SDL/libx86/SDL2main.lib" )
+>>>>>>> origin/master
 
 enum main_states
 {
@@ -20,7 +30,11 @@ enum main_states
 int main(int argc, char* argv[])
 {
 	ReportMemoryLeaks();
+<<<<<<< HEAD
+	SDL_Init(SDL_INIT_EVERYTHING);
+=======
 
+>>>>>>> origin/master
 	int main_return = EXIT_FAILURE;
 	main_states state = MAIN_CREATION;
 	Application* App = nullptr;

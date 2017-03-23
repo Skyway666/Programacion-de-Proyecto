@@ -6,14 +6,22 @@
 
 #define NUM_MODULES 1
 
+<<<<<<< HEAD
+
+=======
 class ModuleWindow;
+>>>>>>> origin/master
 
 class Application
 {
 public:
 
 	Module* modules[NUM_MODULES];
+<<<<<<< HEAD
+	//ModuleWindow* win;
+=======
 	ModuleWindow* win;
+>>>>>>> origin/master
 
 public:
 

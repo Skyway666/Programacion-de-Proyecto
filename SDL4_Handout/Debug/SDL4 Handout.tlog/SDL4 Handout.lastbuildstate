@@ -1,2 +1,6 @@
 #TargetFrameworkVersion=v4.0:PlatformToolSet=v140:EnableManagedIncrementalBuild=false:VCToolArchitecture=Native32Bit:WindowsTargetPlatformVersion=8.1
+<<<<<<< HEAD
 Debug|Win32|C:\Users\lucasgm\Documents\GitHub\Scrolling-with-sound\Scrolling-with-sound-master\SDL4_Handout\|
+=======
+Debug|Win32|C:\Users\lucasgm\Documents\GitHub\Programacion-de-Proyecto\SDL4_Handout\|
+>>>>>>> origin/master

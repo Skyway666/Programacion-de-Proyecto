@@ -18,7 +18,11 @@ ModulePlayer::ModulePlayer()
 	idle.PushBack({184, 14, 60, 90});
 	idle.PushBack({276, 11, 60, 93});
 	idle.PushBack({366, 12, 60, 92});
+<<<<<<< HEAD
 	idle.speed = 0.2f;
+=======
+	idle.speed = 0.5f;
+>>>>>>> origin/master
 
 	// walk forward animation (arcade sprite sheet)
 	//forward.frames.PushBack({9, 136, 53, 83});
@@ -27,6 +31,7 @@ ModulePlayer::ModulePlayer()
 	forward.PushBack({259, 128, 63, 90});
 	forward.PushBack({352, 128, 54, 91});
 	forward.PushBack({432, 131, 50, 89});
+<<<<<<< HEAD
 	forward.speed = 0.1f;
 
 	// TODO 4: Make ryu walk backwards with the correct animations
@@ -62,6 +67,18 @@ ModulePlayer::ModulePlayer()
 	jump.PushBack({ 395, 808, 51, 116 });//92
 	jump.PushBack({ 462, 817, 58, 116 });//112
 	jump.speed = 0.15f;
+=======
+	forward.speed = 0.5f;
+
+	// TODO 4: Make ryu walk backwards with the correct animations
+	//Walk back animation
+	backward.PushBack({ 539, 127, 60, 88 });
+	backward.PushBack({ 623, 127, 60, 88 });
+	backward.PushBack({ 707, 127, 60, 88 });
+	backward.PushBack({ 791, 127, 60, 88 });
+	backward.PushBack({ 875, 127, 60, 88 });
+	backward.speed = 0.5f;
+>>>>>>> origin/master
 
 }
 
@@ -82,20 +99,31 @@ update_status ModulePlayer::Update()
 {
 	Animation* current_animation = &idle;
 
+<<<<<<< HEAD
 	int speed = 1;
 
 	if ((App->input->keyboard[SDL_SCANCODE_D] == 1) && (App->input->keyboard[SDL_SCANCODE_SPACE] != 1))
+=======
+	int speed = 3;
+
+	if(App->input->keyboard[SDL_SCANCODE_D] == 1)
+>>>>>>> origin/master
 	{
 		current_animation = &forward;
 		position.x += speed;
 	}
+<<<<<<< HEAD
 
 	if ((App->input->keyboard[SDL_SCANCODE_A] == 1) && (App->input->keyboard[SDL_SCANCODE_SPACE] != 1))
+=======
+	if (App->input->keyboard[SDL_SCANCODE_A] == 1)
+>>>>>>> origin/master
 	{
 		current_animation = &backward;
 		position.x -= speed;
 	}
 
+<<<<<<< HEAD
 	if (App->input->keyboard[SDL_SCANCODE_K] == 1)
 	{
 		kicking = 1;
@@ -158,6 +186,11 @@ update_status ModulePlayer::Update()
 	// Draw everything --------------------------------------
 	SDL_Rect r = current_animation->GetCurrentFrame();
 	
+=======
+	// Draw everything --------------------------------------
+	SDL_Rect r = current_animation->GetCurrentFrame();
+
+>>>>>>> origin/master
 	App->render->Blit(graphics, position.x, position.y - r.h, &r);
 	
 	return UPDATE_CONTINUE;
