@@ -97,8 +97,11 @@ update_status ModuleSceneKen::Update()
 	
    		if (App->input->keyboard[SDL_SCANCODE_SPACE] && fading == false)
 		{
-			App->fade->FadeToBlack(this, App->scene_honda, 2.0f);
 			fading = true;
+			App->scene_honda->fading = false;
+			App->fade->FadeToBlack(this, App->scene_honda, 2.0f);
+			
+			
 			
 		}
 	return UPDATE_CONTINUE;
