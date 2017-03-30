@@ -1,0 +1,10 @@
+﻿  Application.cpp
+c:\users\lucasgm\desktop\sdl6_handout\moduleintroscene.h(6): warning C4099: 'SDL_Texture': type name first seen using 'struct' now seen using 'class'
+  c:\users\lucasgm\desktop\sdl6_handout\moduleparticles.h(11): note: see declaration of 'SDL_Texture'
+  Generating Code...
+  Compiling...
+  ModulePlayer.cpp
+  ModuleParticles.cpp
+  Generating Code...
+  SDL Game.vcxproj -> C:\Users\lucasgm\Desktop\SDL6_Handout\Debug\SDL6 Handout.exe
+  SDL Game.vcxproj -> C:\Users\lucasgm\Desktop\SDL6_Handout\Debug\SDL6 Handout.pdb (Full PDB)
