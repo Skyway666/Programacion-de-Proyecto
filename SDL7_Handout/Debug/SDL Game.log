@@ -1,0 +1,4 @@
+﻿  ModulePlayer.cpp
+c:\users\lucasgm\desktop\sdl7_handout\moduleplayer.cpp(10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+  SDL Game.vcxproj -> C:\Users\lucasgm\Desktop\SDL7_Handout\Debug\SDL7 Handout.exe
+  SDL Game.vcxproj -> C:\Users\lucasgm\Desktop\SDL7_Handout\Debug\SDL7 Handout.pdb (Full PDB)
