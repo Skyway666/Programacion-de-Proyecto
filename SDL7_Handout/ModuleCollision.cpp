@@ -83,7 +83,7 @@ update_status ModuleCollision::Update()
 
 			if(c1->CheckCollision(c2->rect) == true)
 			{
-				if(matrix[c1->type][c2->type] && c1->callback) 
+ 				if(matrix[c1->type][c2->type] && c1->callback) 
 					c1->callback->OnCollision(c1, c2);
 				
 				if(matrix[c2->type][c1->type] && c2->callback) 
@@ -188,7 +188,7 @@ bool ModuleCollision::EraseCollider(Collider* collider)
 bool Collider::CheckCollision(const SDL_Rect& r) const
 {
 
-	if (!(r.x > rect.x + rect.w) && !(r.x + r.w < rect.x) && !(r.y<rect.y - rect.h) && !(r.y - r.h > rect.y))
+	if (!(r.x > rect.x + rect.w) && !(r.x + r.w < rect.x) && !(r.y < rect.y - rect.h) && !(r.y- r.h > rect.y))
 	{
 		return true;
 	}

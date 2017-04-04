@@ -42,7 +42,7 @@ bool ModulePlayer::Start()
 	position.y = 120;
 
 	// TODO 2: Add a collider to the player
-	Player = App->collision->AddCollider({ position.x,position.y, 33, 15 }, COLLIDER_PLAYER);
+	Player = App->collision->AddCollider({ position.x,position.y, 33, 15 }, COLLIDER_PLAYER, this);
 	return true;
 }
 
@@ -55,6 +55,7 @@ bool ModulePlayer::CleanUp()
 
 	return true;
 }
+
 
 // Update: draw background
 update_status ModulePlayer::Update()
@@ -102,12 +103,25 @@ update_status ModulePlayer::Update()
 
 	// TODO 3: Update collider position to player position
 	Player->SetPos(position.x, position.y);
-	// TODO 4: Detect collision with a wall. If so, go back to intro screen.
-	
+
+
+
 	// Draw everything --------------------------------------
 	App->render->Blit(graphics, position.x, position.y, &(current_animation->GetCurrentFrame()));
 
 	return UPDATE_CONTINUE;
 }
+	// TODO 4: Detect collision with a wall. If so, go back to intro screen.
 
-
+void ModulePlayer::OnCollision(Collider* c1, Collider* c2)
+{
+	if (Player == c1 && App->fade->IsFading() == false)
+	{ 
+		Disable();
+		App->particles->AddParticle(App->particles->explosion, position.x, position.y, COLLIDER_NONE, 3.0f);
+		App->fade->FadeToBlack((Module*)App->scene_space, (Module*)App->scene_intro);
+	
+	    
+    }
+		
+}
