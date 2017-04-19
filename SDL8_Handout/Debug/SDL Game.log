@@ -1,7 +1,22 @@
 ﻿  Enemy_BrownCokie.cpp
-  Generating Code...
-  Compiling...
+  ModuleWindow.cpp
+  ModuleTextures.cpp
+  ModuleSceneSpace.cpp
+  ModuleSceneIntro.cpp
+  ModuleRender.cpp
+  ModulePlayer.cpp
+  ModuleParticles.cpp
+  ModuleInput.cpp
+  ModuleFadeToBlack.cpp
   ModuleEnemies.cpp
+  ModuleCollision.cpp
+  Main.cpp
+  Globals.cpp
+  Enemy_RedBird.cpp
+c:\users\gaming\documents\github\programacion-de-proyecto\sdl8_handout\enemy_redbird.cpp(41): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+  Enemy.cpp
+  Application.cpp
   Generating Code...
-  SDL Game.vcxproj -> C:\Users\lucasgm\Documents\GitHub\Programacion-de-Proyecto\SDL8_Handout\Debug\SDL8 Handout.exe
-  SDL Game.vcxproj -> C:\Users\lucasgm\Documents\GitHub\Programacion-de-Proyecto\SDL8_Handout\Debug\SDL8 Handout.pdb (Full PDB)
+  LINK : C:\Users\Gaming\Documents\GitHub\Programacion-de-Proyecto\SDL8_Handout\Debug\SDL8 Handout.exe not found or not built by the last incremental link; performing full link
+  SDL Game.vcxproj -> C:\Users\Gaming\Documents\GitHub\Programacion-de-Proyecto\SDL8_Handout\Debug\SDL8 Handout.exe
+  SDL Game.vcxproj -> C:\Users\Gaming\Documents\GitHub\Programacion-de-Proyecto\SDL8_Handout\Debug\SDL8 Handout.pdb (Full PDB)
